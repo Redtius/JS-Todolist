@@ -1,4 +1,4 @@
-const tasks = [{
+let tasks = [{
   text:'none',
   done:false,
 }]
@@ -58,15 +58,17 @@ function addTask(task){
   deleteButton.textContent = 'Delete';
 
   deleteButton.addEventListener('click',()=>{
-    const parent = this.parentNode.parentNode;
+    const parent = Row;
 
     const body = document.getElementById('Container');
 
     body.removeChild(parent);
     // add index to remove
-    tasks.find((text)=>{
-      text===TaskLabel.textContent;
-    })
+    const index = tasks.findIndex(task => task.text === TaskLabel.textContent);
+      tasks.splice(index, 1);
+      console.log(index);
+  
+
   })
 
   del.appendChild(deleteButton);
@@ -83,6 +85,13 @@ function showTasks(){
 
 const addButton = document.getElementById('Add');
 
+function DeleteEvent(btn){
+
+      addEventListener('click',()=>{
+
+      })
+}
+
 addButton.addEventListener('click',()=>{
 
   const task = taskInput();
@@ -90,8 +99,6 @@ addButton.addEventListener('click',()=>{
   addTask(task);
 
 });
-
-const deleteButton = document.getElementById
 
 showTasks();
 
